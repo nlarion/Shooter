@@ -13,7 +13,12 @@ namespace UnityStandardAssets._2D
         public float lookAheadReturnSpeed = 0.5f;
         public float lookAheadMoveThreshold = 0.1f;
 
-		// private variables
+        internal void CameraManip()
+        {
+            throw new NotImplementedException();
+        }
+
+        // private variables
         float m_OffsetZ;
         float m_OffsetY;
         Vector3 m_LastTargetPosition;
@@ -68,7 +73,7 @@ namespace UnityStandardAssets._2D
             m_LastTargetPosition = target.position;
         }
 
-        public void CameraManip(Collision2D other)
+        internal void CameraManip(Collision2D other)
         {
 
             if (cameraHit)
