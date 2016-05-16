@@ -6,6 +6,7 @@ namespace UnityStandardAssets._2D
 {
     public class Camera2DFollow : MonoBehaviour
     {
+        public bool cameraHit = true;
         public Transform target;
         public float damping = 1;
         public float lookAheadFactor = 3;
@@ -14,6 +15,7 @@ namespace UnityStandardAssets._2D
 
 		// private variables
         float m_OffsetZ;
+        float m_OffsetY;
         Vector3 m_LastTargetPosition;
         Vector3 m_CurrentVelocity;
         Vector3 m_LookAheadPos;
@@ -23,6 +25,8 @@ namespace UnityStandardAssets._2D
         {
             m_LastTargetPosition = target.position;
             m_OffsetZ = (transform.position - target.position).z;
+            m_OffsetY = (transform.position - target.position).y +5;
+            
             transform.parent = null;
 
 			// if target not set, then set it to the player
@@ -56,11 +60,27 @@ namespace UnityStandardAssets._2D
             }
 
             Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward*m_OffsetZ;
+            Vector3 UpPosition = target.position + Vector3.forward * m_OffsetY;
             Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
 
             transform.position = newPos;
 
             m_LastTargetPosition = target.position;
+        }
+
+        public void CameraManip(Collision2D other)
+        {
+
+            if (cameraHit)
+            {
+                Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward * m_OffsetZ;
+                Vector3 UpPosition = target.position + Vector3.forward * m_OffsetY;
+                Vector3 newPos = Vector3.SmoothDamp(transform.position, UpPosition, ref m_CurrentVelocity, damping);
+
+                transform.position = newPos;
+
+                m_LastTargetPosition = target.position;
+            }
         }
     }
 }
