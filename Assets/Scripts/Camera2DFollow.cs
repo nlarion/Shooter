@@ -83,7 +83,7 @@ namespace UnityStandardAssets._2D
                 Vector3 newPos = Vector3.SmoothDamp(transform.position, UpPosition, ref m_CurrentVelocity, damping);
 
                 transform.position = newPos;
-
+                //New testing
                 m_LastTargetPosition = target.position;
             }
         }
