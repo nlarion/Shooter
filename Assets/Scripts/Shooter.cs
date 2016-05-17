@@ -4,7 +4,7 @@ using System.Collections;
 public class Shooter : MonoBehaviour {
     // Reference to projectile prefab to shoot
     public GameObject projectile;
-    public float power = 100.0f;
+    public int power;
 
     // Reference to AudioClip to play
     public AudioClip shootSFX;
@@ -18,6 +18,7 @@ public class Shooter : MonoBehaviour {
         // Detect if fire button is pressed
         if (Input.GetButtonDown("Fire1"))
         {
+            
             // if projectile is specified
             if (projectile)
             {
@@ -30,7 +31,7 @@ public class Shooter : MonoBehaviour {
                     newProjectile.AddComponent<Rigidbody2D>();
                 }
                 // Apply force to the newProjectile's Rigidbody component if it has one
-                newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(40,0), ForceMode2D.Impulse);
+                newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(power,0), ForceMode2D.Impulse);
 
                 // play sound effect if set
                 if (shootSFX)

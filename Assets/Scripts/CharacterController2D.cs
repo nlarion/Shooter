@@ -4,7 +4,12 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class CharacterController2D : MonoBehaviour
 {
+    // Reference to projectile prefab to shoot
+    public GameObject projectile;
+    public int power;
 
+    // Reference to AudioClip to play
+    public AudioClip shootSFX;
     // player controls
     [Range(0.0f, 10.0f)] // create a slider in the editor and set limits on moveSpeed
     public float moveSpeed = 3f;
@@ -87,6 +92,7 @@ public class CharacterController2D : MonoBehaviour
     // this is where most of the player controller magic happens each game event loop
     void Update()
     {
+
         // exit update if player cannot move or game is paused
         if (!playerCanMove || (Time.timeScale == 0f))
             return;
@@ -148,6 +154,54 @@ public class CharacterController2D : MonoBehaviour
         // this allows the player to jump up through things on the platform layer
         // NOTE: requires the platforms to be on a layer named "Platform"
         Physics2D.IgnoreLayerCollision(_playerLayer, _platformLayer, (_vy > 0.0f));
+
+        // Detect if fire button is pressed
+        if (Input.GetButtonDown("Fire1"))
+        {
+
+            // if projectile is specified
+            if (projectile)
+            {
+                // Instantiante projectile at the camera + 1 meter forward with camera rotation
+                GameObject newProjectile;
+                if (_facingRight)
+                {
+                   newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+                    newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(power, 0), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+                    newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(-power, 0), ForceMode2D.Impulse);
+                }
+                
+
+                // if the projectile does not have a rigidbody component, add one
+                //if (!newProjectile.GetComponent<Rigidbody2D>())
+                //{
+                //    newProjectile.AddComponent<Rigidbody2D>();
+                //}
+                // Apply force to the newProjectile's Rigidbody component if it has one
+                //newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(-power, 0), ForceMode2D.Impulse);
+
+                // play sound effect if set
+                if (shootSFX)
+                {
+                    if (newProjectile.GetComponent<AudioSource>())
+                    { // the projectile has an AudioSource component
+                      // play the sound clip through the AudioSource component on the gameobject.
+                      // note: The audio will travel with the gameobject.
+                        newProjectile.GetComponent<AudioSource>().PlayOneShot(shootSFX);
+                    }
+                    else
+                    {
+                        // dynamically create a new gameObject with an AudioSource
+                        // this automatically destroys itself once the audio is done
+                        AudioSource.PlayClipAtPoint(shootSFX, newProjectile.transform.position);
+                    }
+                }
+            }
+        }
     }
 
     // Checking to see if the sprite should be flipped
