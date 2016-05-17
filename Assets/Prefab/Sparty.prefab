@@ -30,6 +30,7 @@ GameObject:
   - 82: {fileID: 8244850}
   - 95: {fileID: 9596348}
   - 114: {fileID: 11491528}
+  - 114: {fileID: 11450868}
   m_Layer: 8
   m_Name: Sparty
   m_TagString: Player
@@ -44,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.742, y: -0.979, z: 0}
+  m_LocalPosition: {x: -1.68, y: -2.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463798}
@@ -118,7 +119,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -198,6 +199,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11450868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d105d019081759648aad60c2bf446804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 144590, guid: 123a7031029d66f4a961cb55c04f8cea, type: 2}
+  power: 10
+  shootSFX: {fileID: 8300000, guid: bebdfeed22756fe45adfc123b6d4e770, type: 3}
 --- !u!114 &11491528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360bbebe79611254bae2b452a1ac8f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpForce: 600
+  moveSpeed: 4.3
+  jumpForce: 420
   playerHealth: 1
   whatIsGround:
     serializedVersion: 2
