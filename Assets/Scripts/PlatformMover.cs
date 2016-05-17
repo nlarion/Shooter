@@ -30,6 +30,7 @@ public class PlatformMover : MonoBehaviour {
 	// game loop
 	void Update () {
 		// if beyond _moveTime, then start moving
+ 
 		if (Time.time >= _moveTime) {
 			Movement();
 		}
