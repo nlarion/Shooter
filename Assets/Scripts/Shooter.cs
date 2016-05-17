@@ -30,7 +30,7 @@ public class Shooter : MonoBehaviour {
                     newProjectile.AddComponent<Rigidbody2D>();
                 }
                 // Apply force to the newProjectile's Rigidbody component if it has one
-                newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(5,5), ForceMode2D.Impulse);
+                newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(40,0), ForceMode2D.Impulse);
 
                 // play sound effect if set
                 if (shootSFX)

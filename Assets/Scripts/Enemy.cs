@@ -222,7 +222,7 @@ public class Enemy : MonoBehaviour {
 			stunnedCheck.layer = _stunnedLayer;
 
 			// start coroutine to stand up eventually
-			StartCoroutine (Stand ());
+			//StartCoroutine (Stand ());
 		}
 	}
 	
