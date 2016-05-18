@@ -9025,7 +9025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ccdefcac6d7fa34bb61baf66f6c4710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelAfterVictory: GameWin
+  levelAfterVictory: Level 4
   levelAfterGameOver: GameLose
   score: 0
   highscore: 0
@@ -14007,7 +14007,7 @@ Transform:
   - {fileID: 292624132}
   - {fileID: 2121807467}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
 --- !u!4 &1516558733 stripped
 Transform:
   m_PrefabParentObject: {fileID: 457506, guid: 7b71893dbab07d947871e619118fd116, type: 2}
