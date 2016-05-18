@@ -18,7 +18,10 @@ public class EnemyStun : MonoBehaviour {
         {
             // tell the enemy to be stunned
             this.GetComponentInParent<Enemy>().Stunned();
-
+            foreach (BoxCollider2D c in GetComponents<BoxCollider2D>())
+            {
+                c.enabled = false;
+            }
         }
     }
 }

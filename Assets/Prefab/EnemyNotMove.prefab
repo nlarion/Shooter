@@ -11,7 +11,7 @@ GameObject:
   - 61: {fileID: 6142736}
   - 50: {fileID: 5027340}
   - 114: {fileID: 11457046}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: HeadCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
