@@ -221,9 +221,7 @@ public class Enemy : MonoBehaviour {
 			this.gameObject.layer = _stunnedLayer;
 			stunnedCheck.layer = _stunnedLayer;
 
-			// start coroutine to stand up eventually
-			//StartCoroutine (Stand ());
-		}
+        }
 	}
 	
 	// coroutine to unstun the enemy and stand back up

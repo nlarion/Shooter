@@ -163,26 +163,21 @@ public class CharacterController2D : MonoBehaviour
             if (projectile)
             {
                 // Instantiante projectile at the camera + 1 meter forward with camera rotation
-                GameObject newProjectile;
+                GameObject newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+
+                // if the projectile does not have a rigidbody component, add one
+                if (!newProjectile.GetComponent<Rigidbody2D>())
+                {
+                    newProjectile.AddComponent<Rigidbody2D>();
+                }
                 if (_facingRight)
                 {
-                   newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
                     newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(power, 0), ForceMode2D.Impulse);
                 }
                 else
                 {
-                    newProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
                     newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(-power, 0), ForceMode2D.Impulse);
                 }
-                
-
-                // if the projectile does not have a rigidbody component, add one
-                //if (!newProjectile.GetComponent<Rigidbody2D>())
-                //{
-                //    newProjectile.AddComponent<Rigidbody2D>();
-                //}
-                // Apply force to the newProjectile's Rigidbody component if it has one
-                //newProjectile.GetComponent<Rigidbody2D>().AddForce(new Vector2(-power, 0), ForceMode2D.Impulse);
 
                 // play sound effect if set
                 if (shootSFX)
