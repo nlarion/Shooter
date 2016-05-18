@@ -7275,26 +7275,6 @@ Prefab:
       propertyPath: m_Name
       value: MovingEnemy (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 469006, guid: 197eec2b249007b44b148caa17536246, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 415942, guid: 197eec2b249007b44b148caa17536246, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 415942, guid: 197eec2b249007b44b148caa17536246, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 415942, guid: 197eec2b249007b44b148caa17536246, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 415942, guid: 197eec2b249007b44b148caa17536246, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 197eec2b249007b44b148caa17536246, type: 2}
   m_IsPrefabParent: 0
@@ -9951,6 +9931,10 @@ Prefab:
     - target: {fileID: 420526, guid: 197eec2b249007b44b148caa17536246, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151870, guid: 197eec2b249007b44b148caa17536246, type: 2}
+      propertyPath: m_Size.x
+      value: 0.37
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 197eec2b249007b44b148caa17536246, type: 2}
@@ -14146,24 +14130,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 11450868, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11491528, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: power
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11491528, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: shootSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: bebdfeed22756fe45adfc123b6d4e770, type: 3}
-    - target: {fileID: 11491528, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 144590, guid: 123a7031029d66f4a961cb55c04f8cea, type: 2}
-    m_RemovedComponents:
-    - {fileID: 11450868, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1815359412 stripped
