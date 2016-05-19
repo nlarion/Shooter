@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class Elevator : MonoBehaviour
+public class LavaEnding : MonoBehaviour
 {
 
     public GameObject platform; // reference to the platform to move
@@ -22,24 +22,13 @@ public class Elevator : MonoBehaviour
     float _moveTime;
     bool _moving = false;
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
             _moving = true;
             _myWaypointIndex = 0;
 
-        }
-    }
-    void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            _myWaypointIndex++;
-        }
-        if(_myWaypointIndex >= myWaypoints.Length)
-        {
-            _myWaypointIndex = 0;
         }
     }
 
@@ -49,7 +38,7 @@ public class Elevator : MonoBehaviour
         _transform = platform.transform;
         _moveTime = 0f;
         //_moving = false;
-        
+
     }
 
     // game loop
