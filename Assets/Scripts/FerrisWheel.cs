@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
-public class Elevator : MonoBehaviour
+public class FerrisWheel : MonoBehaviour
 {
 
     public GameObject platform; // reference to the platform to move
@@ -20,42 +19,21 @@ public class Elevator : MonoBehaviour
     Transform _transform;
     int _myWaypointIndex = 0;       // used as index for My_Waypoints
     float _moveTime;
-    bool _moving = false;
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            _moving = true;
-            _myWaypointIndex = 0;
-
-        }
-    }
-    void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            _myWaypointIndex++;
-        }
-        if(_myWaypointIndex >= myWaypoints.Length)
-        {
-            _myWaypointIndex = 0;
-        }
-    }
+    bool _moving = true;
 
     // Use this for initialization
     void Start()
     {
         _transform = platform.transform;
         _moveTime = 0f;
-        //_moving = false;
-        
+        _moving = true;
     }
 
     // game loop
     void Update()
     {
         // if beyond _moveTime, then start moving
+
         if (Time.time >= _moveTime)
         {
             Movement();
