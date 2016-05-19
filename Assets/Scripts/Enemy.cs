@@ -5,6 +5,8 @@ public class Enemy : MonoBehaviour {
 	[Range(0f,10f)] //makes the next var editable in a slider for the unity designer game obj.
 	public float moveSpeed = 4f;  // enemy move speed when moving
 	public int damageAmount = 10; // probably deal a lot of damage to kill player immediately
+    public int healthAmount = 10;
+
     [Tooltip("Child gameObject for detecting stun.")]
 	public GameObject stunnedCheck; // what gameobject is the stunnedCheck
 
@@ -22,9 +24,12 @@ public class Enemy : MonoBehaviour {
 	public float waitAtWaypointTime = 1f;   // how long to wait at a waypoint
 	
 	public bool loopWaypoints = true; // should it loop through the waypoints
-	
-	// SFXs
-	public AudioClip stunnedSFX;
+
+    [Tooltip("Make this dude an auto runner")]
+    public bool _runner;
+
+    // SFXs
+    public AudioClip stunnedSFX;
 	public AudioClip attackSFX;
 	
 	// private variables below
@@ -41,6 +46,8 @@ public class Enemy : MonoBehaviour {
 	float _moveTime; 
 	float _vx = 0f;
 	bool _moving = true;
+    bool _isVisible = false;
+    
 	
 	// store the layer number the enemy is on (setup in Awake)
 	int _enemyLayer;
@@ -92,14 +99,19 @@ public class Enemy : MonoBehaviour {
 		{
 			if (Time.time >= _moveTime) {
 				EnemyMovement();
-			} else {
+			}
+            else {
 				_animator.SetBool("Moving", false);
 			}
 		}
 	}
-	
-	// Move the enemy through its rigidbody based on its waypoints
-	void EnemyMovement() {
+    void Run()
+    {
+        Debug.Log("test");
+        _rigidbody.velocity = new Vector2(_transform.localScale.x * -moveSpeed, _rigidbody.velocity.y);
+    }
+    // Move the enemy through its rigidbody based on its waypoints
+    void EnemyMovement() {
 		// if there isn't anything in My_Waypoints
 		if ((myWaypoints.Length != 0) && (_moving)) {
 			
@@ -136,6 +148,10 @@ public class Enemy : MonoBehaviour {
 			}
 			
 		}
+        else if (_isVisible && _runner) 
+        {
+            Run();
+        }
 	}
 	
 	// flip the enemy to face torward the direction he is moving in
@@ -176,17 +192,21 @@ public class Enemy : MonoBehaviour {
 				_moveTime = Time.time + stunnedTime;
 			}
 		}
-	}
-	
-	// if the Enemy collides with a MovingPlatform, then make it a child of that platform
-	// so it will go for a ride on the MovingPlatform
-	void OnCollisionEnter2D(Collision2D other)
-	{
-		if (other.gameObject.tag=="MovingPlatform")
-		{
-			this.transform.parent = other.transform;
-		}
-	}
+        if (collision.gameObject.tag == "MainCamera")
+        {
+            this._isVisible = true;
+        }
+    }
+    // if the Enemy collides with a MovingPlatform, then make it a child of that platform
+    // so it will go for a ride on the MovingPlatform
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "MovingPlatform")
+        {
+            this.transform.parent = other.transform;
+        }
+
+    }
 	
 	// if the enemy exits a collision with a moving platform, then unchild it
 	void OnCollisionExit2D(Collision2D other)
