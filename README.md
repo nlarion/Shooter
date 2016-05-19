@@ -10,7 +10,7 @@
 * Hot platforming action
 * Big boss battle
 
-This project was developed during "Team Week" at Epicodus lasting 3 working days.
+This project was developed during "Team Week" at Epicodus lasting 4 working days.
 
 ## Setup/Installation Requirements
 - Clone this repository.
