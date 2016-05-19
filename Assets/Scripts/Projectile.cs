@@ -8,4 +8,13 @@ public class Projectile : MonoBehaviour {
         //destroy the projectile
         Destroy(this.gameObject);
     }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log(other.tag);
+        if(other.tag == "MainCamera")
+        {        
+            //destroy the projectile
+            Destroy(this.gameObject);
+        }
+    }
 }
