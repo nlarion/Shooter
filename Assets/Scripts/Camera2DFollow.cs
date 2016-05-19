@@ -17,10 +17,17 @@ namespace UnityStandardAssets._2D
         Vector3 m_LastTargetPosition;
         Vector3 m_CurrentVelocity;
         Vector3 m_LookAheadPos;
+        public GameObject otherGameObject;
 
         // Use this for initialization
         private void Start()
         {
+            BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+            Camera camera = GetComponent<Camera>();
+            boxCollider.size = new Vector2(camera.aspect * 2f * camera.orthographicSize, 2f * camera.orthographicSize);
+            //boxCollider.size.x = camera.aspect * 2f * camera.orthographicSize;
+            //boxCollider.size.y = 2f * camera.orthographicSize;
+
             m_LastTargetPosition = target.position;
             m_OffsetZ = (transform.position - target.position).z;
             transform.parent = null;
