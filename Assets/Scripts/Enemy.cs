@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour {
 	}
     void Run()
     {
-        Debug.Log("test");
+        //Debug.Log("run");
         _rigidbody.velocity = new Vector2(_transform.localScale.x * -moveSpeed, _rigidbody.velocity.y);
     }
     // Move the enemy through its rigidbody based on its waypoints
