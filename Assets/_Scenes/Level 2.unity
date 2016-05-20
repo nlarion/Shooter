@@ -14701,30 +14701,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 34
       objectReference: {fileID: 0}
-    - target: {fileID: 8244850, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8244850, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: MinDistance
-      value: 2.1994877
-      objectReference: {fileID: 0}
-    - target: {fileID: 431484, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.026344
-      objectReference: {fileID: 0}
-    - target: {fileID: 431484, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.0263442
-      objectReference: {fileID: 0}
-    - target: {fileID: 431484, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.026344
-      objectReference: {fileID: 0}
-    - target: {fileID: 8244850, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
-      propertyPath: MaxDistance
-      value: 2.1994886
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e2649c0060142d41a47fd95b1cfe0ae, type: 2}
   m_IsPrefabParent: 0
