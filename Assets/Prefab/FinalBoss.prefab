@@ -11,7 +11,7 @@ GameObject:
   - 61: {fileID: 6170046}
   - 50: {fileID: 5032628}
   - 114: {fileID: 11420980}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: HeadCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ GameObject:
   - 50: {fileID: 5061172}
   - 95: {fileID: 9577644}
   - 114: {fileID: 11403240}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: FinalBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
